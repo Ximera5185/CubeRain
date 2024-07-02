@@ -20,11 +20,11 @@ public class Cube : MonoBehaviour
         _meshRenderer.material.SetColor("_Color",_defaultColor); // Устанавливаем простой цвет
         _meshRenderer.material.SetColor("_EmissionColor", _defaultColor);
     }
-    public void SetColor(ColorGenerator colorGenerator)
+    public void SetColor(Color color)
     {
         /*_meshRenderer.material.SetColor("_Color", colorGenerator.GetRandomCustomHDRColor());
         _meshRenderer.material.SetColor("_EmissionColor", colorGenerator.GetRandomCustomHDRColor());*/
-        _meshRenderer.material.color = Color.blue;
+        _meshRenderer.material.color = color;
         
         Debug.Log("Попытались изменить цвет");
     }
