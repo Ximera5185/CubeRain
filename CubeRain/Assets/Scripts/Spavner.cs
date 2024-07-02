@@ -27,14 +27,14 @@ public class Spavner : MonoBehaviour
         if (_cubePool.TryGetObject(out Cube cube))
         {
             cube.transform.position = new Vector3(Random.Range(minPositionX, maxPositionX), positionY, Random.Range(minPositionZ, maxPositionZ));
-
+            cube.gameObject.SetActive(true);
             cube.SetColor(_colorGenerator);
             
 
            /* _renderer.material.SetColor("_Color", _colorGenerator.GetRandomCustomHDRColor());
             _renderer.material.SetColor("_EmissionColor", _colorGenerator.GetRandomCustomHDRColor());*/
             //_renderer.material.color = Color.white;
-            cube.gameObject.SetActive(true);
+           // cube.SetColor(_colorGenerator);
         }
     }
 }

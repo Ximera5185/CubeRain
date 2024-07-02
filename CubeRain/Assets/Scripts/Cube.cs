@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    private Material _material;
+    private MeshRenderer _meshRenderer;
     private Color _defaultColor;
     private bool _isCollided;
     private void Awake()
     {
-        _material = GetComponent<MeshRenderer>().material;
+        _meshRenderer = GetComponent<MeshRenderer>();
         
     }
 
@@ -17,15 +17,15 @@ public class Cube : MonoBehaviour
     {
         _defaultColor = Color.black;
 
-        _material.SetColor("_Color",_defaultColor); // Устанавливаем простой цвет
-        _material.SetColor("_EmissionColor", _defaultColor);
+        _meshRenderer.material.SetColor("_Color",_defaultColor); // Устанавливаем простой цвет
+        _meshRenderer.material.SetColor("_EmissionColor", _defaultColor);
     }
     public void SetColor(ColorGenerator colorGenerator)
     {
-        /*_material.SetColor("_Color", colorGenerator.GetRandomCustomHDRColor());
-        _material.SetColor("_EmissionColor", colorGenerator.GetRandomCustomHDRColor());*/
-
-        _material.color = Color.red;
+        /*_meshRenderer.material.SetColor("_Color", colorGenerator.GetRandomCustomHDRColor());
+        _meshRenderer.material.SetColor("_EmissionColor", colorGenerator.GetRandomCustomHDRColor());*/
+        _meshRenderer.material.color = Color.blue;
+        
         Debug.Log("Попытались изменить цвет");
     }
 
