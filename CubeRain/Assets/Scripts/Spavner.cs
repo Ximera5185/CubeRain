@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Spavner : MonoBehaviour
 {
-    [SerializeField] private Cube _cube;
-    
-    // [SerializeField] private Vector3 [] _spawnPointObject;
+    [SerializeField] private ObjectPool _cubePool;
+    [SerializeField] private ColorGenerator _colorGenerator;
+
+    private MeshRenderer _renderer;
+
     private float minPositionX = -2f;
     private float maxPositionX = 1.4f;
 
@@ -15,8 +17,24 @@ public class Spavner : MonoBehaviour
     private float minPositionZ = -18f;
     private float maxPositionZ = 8f;
 
-    private void Start()
+    private void Update()
     {
-        Cube cube = Instantiate(_cube, new Vector3(Random.Range(minPositionX, maxPositionX), positionY, Random.Range(minPositionZ, maxPositionZ)), Quaternion.identity);
+        SpawnCubes();
+    }
+
+    public void SpawnCubes() 
+    {
+        if (_cubePool.TryGetObject(out Cube cube))
+        {
+            cube.transform.position = new Vector3(Random.Range(minPositionX, maxPositionX), positionY, Random.Range(minPositionZ, maxPositionZ));
+
+            cube.SetColor(_colorGenerator);
+            
+
+           /* _renderer.material.SetColor("_Color", _colorGenerator.GetRandomCustomHDRColor());
+            _renderer.material.SetColor("_EmissionColor", _colorGenerator.GetRandomCustomHDRColor());*/
+            //_renderer.material.color = Color.white;
+            cube.gameObject.SetActive(true);
+        }
     }
 }
