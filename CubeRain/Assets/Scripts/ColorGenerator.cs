@@ -5,8 +5,8 @@ public class ColorGenerator : MonoBehaviour
 {
     [SerializeField] private List<Material> _materials;
 
-    public Color GetRandomCustomHDRColor()
+    public Material GetRandomCustomHDRColor()
     {
-        return _materials [Random.Range(0, _materials.Count)].color;
+        return _materials [Random.Range(0, _materials.Count)];
     }
 }

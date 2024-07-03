@@ -7,33 +7,34 @@ public class Cube : MonoBehaviour
     private MeshRenderer _meshRenderer;
     private Color _defaultColor;
     private bool _isCollided;
+    /*private ColorGenerator _colorGenirator;*/
     private void Awake()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
         
     }
 
-    private void Start()
-    {
-        _defaultColor = Color.black;
-
-        _meshRenderer.material.SetColor("_Color",_defaultColor); // Устанавливаем простой цвет
-        _meshRenderer.material.SetColor("_EmissionColor", _defaultColor);
-    }
+    
     public void SetColor(Color color)
     {
-        /*_meshRenderer.material.SetColor("_Color", colorGenerator.GetRandomCustomHDRColor());
-        _meshRenderer.material.SetColor("_EmissionColor", colorGenerator.GetRandomCustomHDRColor());*/
-        _meshRenderer.material.color = color;
         
+        //_meshRenderer.material.color= color;
+        _meshRenderer.material.SetColor("_Color", color);
+        _meshRenderer.material.SetColor("_EmissionColor", color);
+        //_meshRenderer.material.color = color;
+
         Debug.Log("Попытались изменить цвет");
     }
-
-    /* private void OnMouseDown()
-     {
-         _material.SetColor("_Color", _colorGenerator.GetRandomCustomHDRColor());
-         _material.SetColor("_EmissionColor", _colorGenerator.GetRandomCustomHDRColor());
-     }*/
+   /* public void Init(ColorGenerator colorGenerator) 
+    {
+        _colorGenirator = colorGenerator;
+    }*/
+   /* private void OnMouseDown()
+    {
+        _meshRenderer.material.SetColor("_Color", _colorGenirator.GetRandomCustomHDRColor());
+        _meshRenderer.material.SetColor("_EmissionColor", _colorGenirator.GetRandomCustomHDRColor());
+       // _meshRenderer.material.emis
+    }*/
     private void OnCollisionEnter(Collision collision)
     {
         if (_isCollided == false)

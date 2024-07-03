@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Spavner : MonoBehaviour
@@ -28,8 +29,11 @@ public class Spavner : MonoBehaviour
         {
             cube.transform.position = new Vector3(Random.Range(minPositionX, maxPositionX), positionY, Random.Range(minPositionZ, maxPositionZ));
             cube.gameObject.SetActive(true);
-            cube.SetColor(_colorGenerator.GetRandomCustomHDRColor());
-            
+           //Color color = _colorGenerator.GetRandomCustomHDRColor();
+            cube.SetColor(_colorGenerator.GetRandomCustomHDRColor().color);
+
+            //Debug.Log(color);
+            /*cube.Init(_colorGenerator);*/
 
            /* _renderer.material.SetColor("_Color", _colorGenerator.GetRandomCustomHDRColor());
             _renderer.material.SetColor("_EmissionColor", _colorGenerator.GetRandomCustomHDRColor());*/
