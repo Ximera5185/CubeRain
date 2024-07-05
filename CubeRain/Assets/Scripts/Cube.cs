@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
+    public event Action<Cube> onTouched;
+
     private MeshRenderer _meshRenderer;
     private Color _defaultColor;
     private bool _isCollided;
@@ -13,19 +16,22 @@ public class Cube : MonoBehaviour
         _meshRenderer = GetComponent<MeshRenderer>();
     }
     
-    public void SetColor(Color color)
-    {
-        _meshRenderer.material.SetColor("_Color", color);
-        _meshRenderer.material.SetColor("_EmissionColor", color);
-    }
   
     private void OnCollisionEnter(Collision collision)
     {
         if (_isCollided == false)
         {
             _isCollided = true;
-            
+
+            onTouched?.Invoke(this);
+
             Debug.Log("Ударился");
         }
+    }
+
+    public void SetColor(Color color)
+    {
+        _meshRenderer.material.SetColor("_Color", color);
+        _meshRenderer.material.SetColor("_EmissionColor", color);
     }
 }

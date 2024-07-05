@@ -31,8 +31,15 @@ public class Spavner : MonoBehaviour
 
             cube.gameObject.SetActive(true);
 
-            cube.SetColor(_colorGenerator.GetRandomCustomHDRColor().color);
-
+            /*cube.SetColor(_colorGenerator.GetRandomCustomHDRColor().color);*/
+            cube.onTouched += Touched;
         }
+    }
+
+    private void Touched(Cube cube) 
+    {
+        cube.SetColor(_colorGenerator.GetRandomCustomHDRColor().color);
+
+        cube.onTouched -=Touched;
     }
 }

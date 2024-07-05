@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _poolCubes: []
-  _amountToPool: 10
+  _amountToPool: 6
   _cube: {fileID: -3316899892025421552, guid: 98551c4cfa7c11e45bded651612c7bd6, type: 3}
 --- !u!1001 &1872353050
 PrefabInstance:
