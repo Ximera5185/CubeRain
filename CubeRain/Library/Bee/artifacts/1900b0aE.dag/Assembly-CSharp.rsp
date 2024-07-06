@@ -369,6 +369,7 @@
 "Assets/Scripts/ColorGenerator.cs"
 "Assets/Scripts/Cube.cs"
 "Assets/Scripts/ObjectPool.cs"
+"Assets/Scripts/Platform.cs"
 "Assets/Scripts/Spavner.cs"
 -langversion:9.0
 

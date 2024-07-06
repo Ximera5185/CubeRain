@@ -5,21 +5,15 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] private List<Cube> _poolCubes;
-    [SerializeField] private int _amountToPool = 20;
     [SerializeField] private Cube _cube;
 
-    private void Start()
+     private int _amountToPool = 10;
+
+    private void Awake()
     {
         _poolCubes = new List<Cube>();
 
-        for (int i = 0; i < _amountToPool; i++)
-        {
-            Cube cube = Instantiate(_cube);
-
-            cube.gameObject.SetActive(false);
-
-            _poolCubes.Add(cube);
-        }
+        CreatePoolCubes();
     }
 
     public bool TryGetObject(out Cube cube)
@@ -37,5 +31,26 @@ public class ObjectPool : MonoBehaviour
         cube = null;
 
         return false;
+    }
+
+    public void IncreasePool()
+    {
+        Cube cube = Instantiate(_cube);
+
+        cube.gameObject.SetActive(false);
+
+        _poolCubes.Add(cube);
+    }
+
+    private void CreatePoolCubes() 
+    {
+        for (int i = 0; i < _amountToPool; i++)
+        {
+            Cube cube = Instantiate(_cube);
+
+            cube.gameObject.SetActive(false);
+
+            _poolCubes.Add(cube);
+        }
     }
 }
