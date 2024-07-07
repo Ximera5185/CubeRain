@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +6,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private List<Cube> _poolCubes;
     [SerializeField] private Cube _cube;
 
-     private int _amountToPool = 10;
+    private int _amountToPool = 10;
 
     private void Awake()
     {
@@ -42,7 +41,7 @@ public class ObjectPool : MonoBehaviour
         _poolCubes.Add(cube);
     }
 
-    private void CreatePoolCubes() 
+    private void CreatePoolCubes()
     {
         for (int i = 0; i < _amountToPool; i++)
         {

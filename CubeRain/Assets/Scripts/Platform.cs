@@ -1,11 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+[RequireComponent(typeof(MeshRenderer))]
 
 public class Platform : MonoBehaviour
 {
-   [SerializeField] private ColorGenerator _colorGenerator;
+    [SerializeField] private ColorGenerator _colorGenerator;
 
     private MeshRenderer _meshRenderer;
     private WaitForSeconds _waitForSeconds;
@@ -24,12 +24,12 @@ public class Platform : MonoBehaviour
         _currentCoroutine = StartCoroutine(Counting());
     }
 
-    public Color GetColor() 
+    public Color GetColor()
     {
         return _meshRenderer.material.color;
     }
 
-    private void SetColor(Color color) 
+    private void SetColor(Color color)
     {
         _meshRenderer.material.SetColor("_Color", color);
         _meshRenderer.material.SetColor("_EmissionColor", color);
@@ -40,6 +40,7 @@ public class Platform : MonoBehaviour
         while (true)
         {
             Color color = _colorGenerator.GetRandomCustomHDRColor().color;
+
             SetColor(color);
 
             yield return _waitForSeconds;

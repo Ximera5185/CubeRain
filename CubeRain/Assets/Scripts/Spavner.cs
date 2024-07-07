@@ -1,27 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
 
 public class Spavner : MonoBehaviour
 {
-    [SerializeField] private Platform _platform;
     [SerializeField] private ObjectPool _cubePool;
     [SerializeField] private ColorGenerator _colorGenerator;
 
     private Coroutine _currentCoroutine;
     private WaitForSeconds _waitForSeconds;
-    private MeshRenderer _renderer;
     private float _timeSpawn = 0.1f;
-
     private float minPositionX = -2f;
     private float maxPositionX = 1.4f;
-
     private float positionY = 15f;
-
     private float minPositionZ = -14f;
     private float maxPositionZ = 8f;
-
 
     private void Awake()
     {
@@ -32,17 +24,6 @@ public class Spavner : MonoBehaviour
     {
         _currentCoroutine = StartCoroutine(Counting());
     }
-
-    private IEnumerator Counting()
-    {
-        while (true)
-        {
-            SpawnCubes();
-
-            yield return _waitForSeconds;
-        }
-    }
-
 
     public void SpawnCubes()
     {
@@ -55,6 +36,16 @@ public class Spavner : MonoBehaviour
         else
         {
             _cubePool.IncreasePool();
+        }
+    }
+
+    private IEnumerator Counting()
+    {
+        while (true)
+        {
+            SpawnCubes();
+
+            yield return _waitForSeconds;
         }
     }
 }
