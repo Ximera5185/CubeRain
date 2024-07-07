@@ -8,12 +8,12 @@ public class Spavner : MonoBehaviour
 
     private WaitForSeconds _waitForSeconds;
 
-    private float _timeSpawn = 0.1f;
+    private float _timeSpawn = 0.4f;
     private float _minPositionX = -2f;
     private float _maxPositionX = 1.4f;
-    private float _positionY = 15f;
-    private float _minPositionZ = -14f;
-    private float _maxPositionZ = 8f;
+    private float _positionY = 23f;
+    private float _minPositionZ = -10f;
+    private float _maxPositionZ = 12f;
 
     private void Awake()
     {

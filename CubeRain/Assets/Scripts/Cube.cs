@@ -20,16 +20,13 @@ public class Cube : MonoBehaviour
         _waitForSeconds = new WaitForSeconds(_cubeLifetime);
     }
 
-    private void OnEnable()
-    {
-        StartCoroutine(Counting());
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (_isCollided == false && collision.gameObject.TryGetComponent<Platform>(out Platform platform))
         {
             _isCollided = true;
+
+            StartCoroutine(Counting());
 
             SetColor(platform.GetColor());
         }
