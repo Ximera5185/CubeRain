@@ -8,7 +8,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.8DF93126" = "l"
+	"last_search.8DF93126" = "Frame "
 	"OpenInspectorPreview.8DF93126" = "0"
 	"currentGroup.8DF93126" = null
 }
@@ -67,6 +67,8 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"Frame setting"
+	"Чтобы включить функцию отражения пространства экрана, перейдите в раздел \" Настройки кадра \"(Настройки по умолчанию HDRP или пользовательские настройки кадра камеры) в разделе \" Освещение\". Затем добавьте переопределение отражения пространства экрана к объекту Volume."
 ]
 searchItemFavorites = [
 ]
