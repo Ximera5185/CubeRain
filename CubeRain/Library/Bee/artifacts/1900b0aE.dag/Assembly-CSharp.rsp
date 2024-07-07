@@ -367,6 +367,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.1.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.1.17f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/ColorGenerator.cs"
+"Assets/Scripts/Constants.cs"
 "Assets/Scripts/Cube.cs"
 "Assets/Scripts/ObjectPool.cs"
 "Assets/Scripts/Platform.cs"

@@ -6,14 +6,14 @@ public class Spavner : MonoBehaviour
     [SerializeField] private ObjectPool _cubePool;
     [SerializeField] private ColorGenerator _colorGenerator;
 
-    private Coroutine _currentCoroutine;
     private WaitForSeconds _waitForSeconds;
+
     private float _timeSpawn = 0.1f;
-    private float minPositionX = -2f;
-    private float maxPositionX = 1.4f;
-    private float positionY = 15f;
-    private float minPositionZ = -14f;
-    private float maxPositionZ = 8f;
+    private float _minPositionX = -2f;
+    private float _maxPositionX = 1.4f;
+    private float _positionY = 15f;
+    private float _minPositionZ = -14f;
+    private float _maxPositionZ = 8f;
 
     private void Awake()
     {
@@ -22,14 +22,14 @@ public class Spavner : MonoBehaviour
 
     private void Start()
     {
-        _currentCoroutine = StartCoroutine(Counting());
+        StartCoroutine(Counting());
     }
 
     public void SpawnCubes()
     {
         if (_cubePool.TryGetObject(out Cube cube))
         {
-            cube.transform.position = new Vector3(Random.Range(minPositionX, maxPositionX), positionY, Random.Range(minPositionZ, maxPositionZ));
+            cube.transform.position = new Vector3(Random.Range(_minPositionX, _maxPositionX), _positionY, Random.Range(_minPositionZ, _maxPositionZ));
 
             cube.gameObject.SetActive(true);
         }
@@ -41,7 +41,7 @@ public class Spavner : MonoBehaviour
 
     private IEnumerator Counting()
     {
-        while (true)
+        while (enabled)
         {
             SpawnCubes();
 

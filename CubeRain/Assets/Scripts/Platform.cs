@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ public class Platform : MonoBehaviour
 
     private MeshRenderer _meshRenderer;
     private WaitForSeconds _waitForSeconds;
-    private Coroutine _currentCoroutine;
     private float _time—olor—hange = 1f;
 
     private void Awake()
@@ -21,7 +21,7 @@ public class Platform : MonoBehaviour
 
     private void Start()
     {
-        _currentCoroutine = StartCoroutine(Counting());
+        StartCoroutine(Counting());
     }
 
     public Color GetColor()
@@ -31,13 +31,13 @@ public class Platform : MonoBehaviour
 
     private void SetColor(Color color)
     {
-        _meshRenderer.material.SetColor("_Color", color);
-        _meshRenderer.material.SetColor("_EmissionColor", color);
+        _meshRenderer.material.SetColor(Constants.Color, color);
+        _meshRenderer.material.SetColor(Constants.EmissionColor, color);
     }
 
     private IEnumerator Counting()
     {
-        while (true)
+        while (enabled)
         {
             Color color = _colorGenerator.GetRandomCustomHDRColor().color;
 

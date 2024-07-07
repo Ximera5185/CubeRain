@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using UnityEngine;
 
@@ -8,7 +9,6 @@ public class Cube : MonoBehaviour
     [SerializeField] private Color _defaultColor;
 
     private MeshRenderer _meshRenderer;
-    private Coroutine _currentCoroutine;
     private WaitForSeconds _waitForSeconds;
     private float _cubeLifetime = 5f;
     private bool _isCollided;
@@ -22,7 +22,7 @@ public class Cube : MonoBehaviour
 
     private void OnEnable()
     {
-        _currentCoroutine = StartCoroutine(Counting());
+        StartCoroutine(Counting());
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -36,8 +36,8 @@ public class Cube : MonoBehaviour
     }
     public void SetColor(Color color)
     {
-        _meshRenderer.material.SetColor("_Color", color);
-        _meshRenderer.material.SetColor("_EmissionColor", color);
+        _meshRenderer.material.SetColor(Constants.Color, color);
+        _meshRenderer.material.SetColor(Constants.EmissionColor, color);
     }
 
     private IEnumerator Counting()

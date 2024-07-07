@@ -45,11 +45,7 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = 0; i < _amountToPool; i++)
         {
-            Cube cube = Instantiate(_cube);
-
-            cube.gameObject.SetActive(false);
-
-            _poolCubes.Add(cube);
+            IncreasePool();
         }
     }
 }
